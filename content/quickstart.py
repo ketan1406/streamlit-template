@@ -21,9 +21,8 @@ Returns:
 from pathlib import Path
 import streamlit as st
 
-from src.common.common import page_setup, v_space
+from src.common.common import v_space
 
-page_setup(page="main")
 
 st.markdown("# 👋 Quick Start")
 st.markdown("## Template for OpenMS web apps using the **streamlit** framework")

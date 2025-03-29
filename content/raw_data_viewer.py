@@ -2,11 +2,8 @@ from pathlib import Path
 
 import streamlit as st
 
-from src.common.common import page_setup
 from src import view
 
-
-params = page_setup()
 
 st.title("View raw MS data")
 

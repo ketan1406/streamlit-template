@@ -1,10 +1,8 @@
 import streamlit as st
 
-from src.common.common import page_setup, save_params, show_table
+from src.common.common import save_params, show_table
 from src import simpleworkflow
 
-# Page name "workflow" will show mzML file selector in sidebar
-params = page_setup()
 
 st.title("Simple Workflow")
 st.markdown("Example for a simple workflow with quick execution times.")

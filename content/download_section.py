@@ -3,10 +3,7 @@ import streamlit as st
 from pathlib import Path
 import shutil
 
-from src.common.common import page_setup
 from zipfile import ZipFile, ZIP_DEFLATED
-
-page_setup()
 
 # Define output folder here; all subfolders will be handled as downloadable
 # directories

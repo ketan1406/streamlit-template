@@ -4,7 +4,6 @@ import streamlit as st
 import pandas as pd
 
 from src.common.common import (
-    page_setup,
     save_params,
     v_space,
     show_table,
@@ -12,8 +11,6 @@ from src.common.common import (
     tk_directory_dialog,
 )
 from src import fileupload
-
-params = page_setup()
 
 st.title("File Upload")
 
@@ -129,5 +126,3 @@ if any(Path(mzML_dir).iterdir()):
             params = fileupload.remove_all_mzML_files(params)
             save_params(params)
             st.rerun()
-
-save_params(params)

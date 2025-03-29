@@ -1,9 +1,7 @@
 import streamlit as st
-from src.common.common import page_setup
 from pathlib import Path
 from docs.toppframework import content as topp_framework_content
 
-page_setup()
 
 
 st.title("Documentation")
