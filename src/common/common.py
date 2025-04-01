@@ -326,21 +326,14 @@ def render_sidebar(page: str = "") -> None:
                 if st.session_state.location == "local":
                     # Define callback function to change workspace
                     def change_workspace():
-                        # Check if the key exists before using it
-                        chosen_workspace_value = st.session_state.get("chosen-workspace")
-                        if chosen_workspace_value is not None:
-                            for key in params.keys(): # Make sure 'params' is accessible here or passed as argument if needed
-                                if key in st.session_state.keys():
-                                    del st.session_state[key]
-                            # Use the retrieved value
-                            st.session_state.workspace = Path(
-                                workspaces_dir, chosen_workspace_value # Make sure 'workspaces_dir' is accessible
-                            )
-                            st.query_params.workspace = chosen_workspace_value
-                        else:
-                            # Optionally handle the case where the key is missing, though it might not be necessary
-                            # st.warning("Could not change workspace: chosen-workspace key not found in session state.")
-                            pass
+                        for key in params.keys():
+                            if key in st.session_state.keys():
+                                del st.session_state[key]
+                        st.session_state.workspace = Path(
+                            workspaces_dir, st.session_state["chosen-workspace"]
+                        )
+                        st.query_params.workspace = st.session_state["chosen-workspace"]
+
                     # Get all available workspaces as options
                     options = [
                         file.name for file in workspaces_dir.iterdir() if file.is_dir()
